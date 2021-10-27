@@ -1,0 +1,12 @@
+Queries I ran on Stack Exchange to get data files:
+
+1. Select id, posttypeid, score, viewcount, body, owneruserid, ownerdisplayname, title, tags, answercount, commentcount, favoritecount from posts where posts.ViewCount > 1000000 ORDER BY posts.ViewCount
+2. Select id, posttypeid, score, viewcount, body, owneruserid, ownerdisplayname, title, tags, answercount, commentcount, favoritecount  from posts where posts.ViewCount <= 1000000 and posts.ViewCount > 125000 ORDER BY posts.ViewCount
+3. Select id, posttypeid, score, viewcount, body, owneruserid, ownerdisplayname, title, tags, answercount, commentcount, favoritecount  from posts where posts.ViewCount <= 125000 and 
+posts.ViewCount > 75000 ORDER BY posts.ViewCount
+4. Select id, posttypeid, score, viewcount, body, owneruserid, ownerdisplayname, title, tags, answercount, commentcount, favoritecount  from posts where posts.ViewCount <= 75000 and 
+posts.ViewCount > 55000 ORDER BY posts.ViewCount
+5. Select id, posttypeid, score, viewcount, body, owneruserid, ownerdisplayname, title, tags, answercount, commentcount, favoritecount  from posts where posts.ViewCount <= 55000 and 
+posts.ViewCount > 43000 ORDER BY posts.ViewCount
+6. Select id, posttypeid, score, viewcount, body, owneruserid, ownerdisplayname, title, tags, answercount, commentcount, favoritecount  from posts where posts.ViewCount <= 43000 and 
+posts.ViewCount > 41000 ORDER BY posts.ViewCount
