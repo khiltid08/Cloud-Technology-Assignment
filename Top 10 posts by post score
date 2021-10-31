@@ -1,0 +1,11 @@
+A = LOAD 'finaldata.csv' USING  PigStorage(',') AS (Id:int, PostTypeId:int Score:int, ViewCount:int, Body:chararray, OwnerUserId:int, OwnerDisplayName:chararray, Title:chararray, Tags:chararray, AnswerCount:int, CommentCount:int, FavoriteCount:int);
+
+B = ORDER A BY Score DESC;
+
+C = LIMIT B 10;
+
+DUMP C;
+
+STORE C INTO 'user/khilti_dedhia2/task1result' USING PigStorage(',');
+
+hdfs dfs -get user/khilti_dedhia2/task1result/part-r-00000
