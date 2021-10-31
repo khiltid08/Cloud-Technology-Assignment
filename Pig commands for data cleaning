@@ -1,0 +1,7 @@
+A = LOAD 'dataset.csv' USING PigStorage(',') AS (Id:int, PostTypeId:int, Score:int, ViewCount:int, Body:chararray, OwnerUserId:int, OwnerDisplayName:chararray, Title:chararray, Tags:chararray, AnswerCount:int, CommentCount:int, FavoriteCount:int);
+
+B = DISTINCT A;
+
+STORE INTO 'user/khilti_dedhia2/finaldataset' USING PigStorage(',');
+
+hdfs dfs -get user/khilti_dedhia2/finaldataset 
