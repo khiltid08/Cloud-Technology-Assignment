@@ -1,0 +1,23 @@
+CREATE DATABASE ASSIGNEMENT;
+
+CREATE TABLE data (id INT, posttypeid INT, score INT, viewcount INT, body STRING, owneruserid INT, ownerdisplayname STRING, title STRING, tags STRING, answerc INT, commentc INT, favourite INT) row format delimited fields terminated BY ',';
+
+LOAD DATA INPATH '/home/khilti_dedhia2/data.csv' INTO TABLE data;
+
+CREATE TABLE test AS SELECT * FROM data WHERE owneruserid IS NOT NULL;
+
+CREATE TABLE testsum AS SELECT *, SUM(Score) OVER (PARTITION BY owneruserid ORDER BY oenweruserid) FROM test;
+
+DESCRIBE testsum;
+
+CREATE TABLE test1 AS SELECT *, row_number() OVER (PARTITION BY owneruserid) FROM testsum;
+
+CREATE TABLE test2 AS SELECT * FROM test1 WHERE row_number_0=1;
+
+CREATE TABLE task2 AS SELECT * FROM test2 ORDER BY sum_window_0 DESC;
+
+SELECT * FROM task2 LIMIT 10;
+
+CREATE TABLE task2final AS SELECT id, score, owneruserid, ownerdisplayname, sum_window_0 FROM task2 LIMIT 10;
+
+hdfs dfs -get /user/hive/warehouse/task2final/000000_0
