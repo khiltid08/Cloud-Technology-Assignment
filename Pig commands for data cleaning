@@ -4,4 +4,4 @@ B = DISTINCT A;
 
 STORE INTO 'user/khilti_dedhia2/finaldataset' USING PigStorage(',');
 
-hdfs dfs -get user/khilti_dedhia2/finaldataset 
+hdfs dfs -get user/khilti_dedhia2/finaldataset/part-r-00000
