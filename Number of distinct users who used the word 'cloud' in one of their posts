@@ -1,0 +1,5 @@
+SELECT COUNT(DISTINCT owneruserid) FROM data WHERE (body REGEXP 'cloud') OR (title REGEXP 'cloud');
+
+SELECT COUNT(DISTINCT owneruserid) FROM data WHERE (body REGEXP 'Cloud') OR (title REGEXP 'Cloud');
+
+SELECT COUNT(DISTINCT owneruserid) FROM data WHERE (body REGEXP 'CLOUD') OR (title REGEXP 'CLOUD');
